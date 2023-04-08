@@ -33,13 +33,9 @@ resource "terraform_data" "subscribe_bill_to_oss" {
 
   provisioner "local-exec" {
     command = "aliyun bssopenapi SubscribeBillToOSS --region ${self.input.region} --SubscribeBucket ${self.input.bucket_name} --SubscribeType ${self.input.bill_type} --BucketPath ${self.input.bill_type}"
-    # The bssopenapi command is not yet available on Alibaba Cloud CLI for Linux
-    interpreter = ["PowerShell", "-Command"]
   }
   provisioner "local-exec" {
     when    = destroy
     command = "aliyun bssopenapi UnsubscribeBillToOSS --region ${self.input.region} --SubscribeType ${self.input.bill_type}"
-    # The bssopenapi command is not yet available on Alibaba Cloud CLI for Linux
-    interpreter = ["PowerShell", "-Command"]
   }
 }
