@@ -10,6 +10,7 @@ This module will create an OSS bucket for billing data and will enable [all bill
 - It need to run with the Alibaba Cloud CLI > `v3.0.121` as the `aliyun bssopenapi SubscribeBillToOSS` command is not supported on older versions.
 - You will need to wait ~30s to view new bill folders in your OSS bucket.
 - You can only have one export per bill type, you may first need to run this next command `aliyun bssopenapi UnsubscribeBillToOSS --region YOUR-REGION-HERE --SubscribeType BILL-TYPE-HERE`.
+- `MonthBill (Monthly bill in the PDF format)` export is not working using the Alibaba Cloud CLI.
 
 Note: On destroy, this module will unsubscribe to bill.
 
